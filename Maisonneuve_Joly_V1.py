@@ -2,6 +2,7 @@
 TD4
 Gabriel Maisonneuve
 Samuel Joly   
+git version
 """
 
 # packages calcul numérique 
