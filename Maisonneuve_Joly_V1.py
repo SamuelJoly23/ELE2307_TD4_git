@@ -71,15 +71,17 @@ print("Longueur d'onde max = ", lambda_max, "m")
 
 # ********** Question 2 **********
 # ***** 2a) *****
-# sans atmosphere
+# flux sans atmosphere
 flux_surf_hades_emis = flux_surf_hades/4;
 flux_surf_hep_emis = flux_surf_hep/4;
-# sans atmosphere
+
+# ***** 2b) *****
+# temperature sans atmosphere
 T_hades = (flux_surf_hades_emis/(epsilon*sigma))**(0.25); # valider
 T_hep = (flux_surf_hep_emis/(epsilon*sigma))**(0.25); # valider
 
 
-# ***** 2b) *****
+# ***** 2c) *****
 # avec atmosphere
 # hades
 Js_ha = flux_surf_hades_emis;
@@ -102,7 +104,7 @@ Ts_surface_hep = (Jrs_he/(sigma*epsilon))**(0.25);
 Jra_he = Jrs_he*e_he/2;
 Ta_hep = (Jra_he/(e_he*sigma))**(0.25);
 
-# ***** 2c) *****
+# ***** 2d) *****
 Ta_hep_c = (((((1-a_he)*(((flux_surf_etoile*A_etoile)/(4*np.pi*d_he**2))/4))/(1-e_he/2))*e_he/2)/(e_he*sigma))**(0.25);
 
 # Define the variable
