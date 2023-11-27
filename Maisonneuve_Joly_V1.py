@@ -30,7 +30,6 @@ A_disque_hades = np.pi*r_ha**2;
 # Caracteristique de la planete Hephaistos
 r_he = 8000000;      # m
 d_he = 2.2E11;       # m
-#d_he = 73961270400.8721;       # m test avec 2d)
 e_he = 0.82;
 a_he = 0.75;
 A_etoile_hep = 4*np.pi*d_he**2;
@@ -75,14 +74,12 @@ print("Longueur d'onde max = ", lambda_max, "m")
 # sans atmosphere
 flux_surf_hades_emis = flux_surf_hades/4;
 flux_surf_hep_emis = flux_surf_hep/4;
-
-
-# ***** 2b) *****
 # sans atmosphere
 T_hades = (flux_surf_hades_emis/(epsilon*sigma))**(0.25); # valider
 T_hep = (flux_surf_hep_emis/(epsilon*sigma))**(0.25); # valider
 
-# ***** 2c) *****
+
+# ***** 2b) *****
 # avec atmosphere
 # hades
 Js_ha = flux_surf_hades_emis;
@@ -105,9 +102,7 @@ Ts_surface_hep = (Jrs_he/(sigma*epsilon))**(0.25);
 Jra_he = Jrs_he*e_he/2;
 Ta_hep = (Jra_he/(e_he*sigma))**(0.25);
 
-# ***** 2d) *****
-
-
+# ***** 2c) *****
 Ta_hep_c = (((((1-a_he)*(((flux_surf_etoile*A_etoile)/(4*np.pi*d_he**2))/4))/(1-e_he/2))*e_he/2)/(e_he*sigma))**(0.25);
 
 # Define the variable
@@ -118,8 +113,6 @@ equation = Eq(Ts_surface_hades, (((((1-a_he)*(((flux_surf_etoile*A_etoile)/(4*np
 
 # Solve the equation for x
 solution = solve(equation, new_d_hep)
-
-
 
 # ***** reponses *****
 print("Flux surfacique émis par la surface d'Hadès = ", flux_surf_hades_emis, "W/m^2")
@@ -133,7 +126,8 @@ print("Température de surface avec atmosphère = ", Ts_surface_hades, "K")
 print("Température de l'atmosphère = ", Ta_hades, "K")
 
 print("Héphaïstos")
-print("Température de surface avec atmosphère = ", Ts_surface_hep,"")
+print("Température de surface avec atmosphère = ", Ts_surface_hep,"K")
 print("Température de l'atmosphère = ", Ta_hep, "K")
 
-print(solution)
+print("Le nouveau paramètre est la distance entre l'étoile et la planète")
+print("La nouvelle distance est", solution[1], "m")
